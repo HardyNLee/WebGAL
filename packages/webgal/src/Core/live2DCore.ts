@@ -27,12 +27,21 @@ export const baseFocusParam: FocusParam = {
   instant: false,
 };
 
+export enum PositioningType {
+  W_4_5_12, // WebGAL 4.5.12及以前版本, MyGO 2.3及以前版本
+  W_4_5_13, // WebGAL 4.5.13及以后版本, MyGO 2.4, MyGO 2.5
+  BC_1_0_0, // BandoriCraft 1.0.0及以后版本, MyGO3.0.0
+  M_3_1_0, // MyGO 3.1.0及以后版本
+}
+
 export class Live2DCore {
   public isAvailable = false;
 
   public Live2DModel: any;
   public SoundManager: any;
   public Config: any;
+
+  public positioningType = PositioningType.M_3_1_0;
 
   // 临时记录未初始化前的数据
   // 旧版表情混合模式
